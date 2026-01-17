@@ -30,12 +30,9 @@
 //! > re-sell these icons."
 //!
 
-#[macro_use]
-extern crate enum_iterator;
-
 /// Icon containing all possible icon names as enum discriminants
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, PartialOrd, Ord, Sequence)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum Icon {
     TenK,
     TenMp,

@@ -1,6 +1,6 @@
 [package]
 name = "material-icons"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 authors = ["Felix Schütt <felix.schuett@maps4print.com>"]
 description = "Strongly-typed codepoint mappings for the Google Material Icons font"
@@ -13,5 +13,5 @@ readme = "README.md"
 # build = "./generate.rs"
 
 [dependencies]
-enum-iterator = "1.4.1"
+# No dependencies - iteration available via ALL_ICONS array
 

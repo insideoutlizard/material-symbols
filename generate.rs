@@ -32,6 +32,27 @@ const RUST_CODE_END_4: &str = r#"    }
 }
 "#;
 
+const RUST_CODE_START_5: &str = "
+/// Total number of Material Icons
+pub const ICON_COUNT: usize = ";
+
+const RUST_CODE_MID_5: &str = ";
+
+/// Array of all Material Icons for iteration
+/// 
+/// Use this to register all icons at startup:
+/// ```rust
+/// use material_icons::{ALL_ICONS, icon_to_char, icon_to_html_name};
+/// for icon in ALL_ICONS.iter() {
+///     let char_code = icon_to_char(*icon);
+///     let name = icon_to_html_name(icon);
+///     // ... register icon
+/// }
+/// ```
+pub const ALL_ICONS: [Icon; ICON_COUNT] = [\n";
+
+const RUST_CODE_END_5: &str = "];\n";
+
 fn fix_icon_name(name: &str) -> &str {
     // Rust icons can't start with number
     match name {
@@ -153,4 +174,17 @@ fn main() {
     }
     file.write(RUST_CODE_END_4.as_bytes()).unwrap();
 
+    // -- part 5: generate ALL_ICONS array
+    file.write(RUST_CODE_START_5.as_bytes()).unwrap();
+    file.write(format!("{}", codepoints.len()).as_bytes()).unwrap();
+    file.write(RUST_CODE_MID_5.as_bytes()).unwrap();
+    for (i, (icon_name, _, _)) in codepoints.iter().enumerate() {
+        if i > 0 {
+            file.write(b",\n").unwrap();
+        }
+        let enum_str = format!("    Icon::{}", icon_name);
+        file.write(enum_str.as_bytes()).unwrap();
+    }
+    file.write(b"\n").unwrap();
+    file.write(RUST_CODE_END_5.as_bytes()).unwrap();
 }

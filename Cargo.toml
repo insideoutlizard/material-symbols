@@ -1,7 +1,7 @@
 [package]
-name = "material-symbols"
-version = "0.3.0"
-edition = "2021"
+name = "material_symbols"
+version = "0.0.1"
+edition = "2024"
 authors = [
 "Felix Schütt <felix.schuett@maps4print.com>",
 "insideoutlizard <insideoutlizard@gmail.com>"

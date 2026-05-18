@@ -1,10 +1,9 @@
-# material-icons
+# material-symbols
 
 This crate contains the auto-generated mapping from an icon name
 (such as `Icon::NetworkWifi`) to the character codepoint `\u{e1ba}`)
-in Googles Material Icon Font ([https://material.io/tools/icons/](https://material.io/tools/icons/)) -
-useful if you want to use the material-icons font in user interfaces created
-in Rust
+in Google's Material Symbols variable font ([https://material.io/tools/icons/](https://material.io/tools/icons/))
+
 
 ## Example
 

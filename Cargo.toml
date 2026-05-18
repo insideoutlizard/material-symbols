@@ -1,22 +1,19 @@
 [package]
 name = "material_symbols"
 version = "0.0.1"
-edition = "2024"
 authors = [
 "Felix Schütt <felix.schuett@maps4print.com>",
 "insideoutlizard <insideoutlizard@gmail.com>"
 ]
+edition = "2024"
+rust-version = "1.95.0"
 description = "Strongly-typed codepoint mappings for the Google Material Symbols"
+readme = "README.md"
 keywords = ["gui", "material", "material-3", "material-symbols", "icon", "icons", "m3", "m3e" ]
-categories = ["gui"]
+categories = ["web-development", "gui"]
+build = "./build.rs"
 license = "Apache-2.0"
 repository = "https://github.com/fschutt/material-icons"
-readme = "README.md"
-# Un-comment this to re-generate the lib.rs file
-build = "./generate.rs"
-
-[dependencies]
-# No dependencies - iteration available via ALL_ICONS array
 
 [features]
 default = ["sharp"]

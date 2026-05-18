@@ -3,7 +3,6 @@ use std::char::from_u32;
 use std::fs::File;
 use std::io::Write;
 
-const RUST_CODE_PREAMBLE: &str = include_str!("preamble.rs");
 const RUST_CODE_START_1: &str = "
 /// Icon containing all possible icon names as enum discriminants
 #[repr(C)]
@@ -51,6 +50,9 @@ pub const ALL_ICONS: [Icon; ICON_COUNT] = [\n";
 const RUST_CODE_END_5: &str = "];\n";
 
 fn main() {
+    println!("cargo:rerun-if-changed=assets/codepoints.txt");
+    println!("cargo:rerun-if-changed=build.rs");
+
     const CODEPOINTS: &str = include_str!("./assets/codepoints.txt");
 
     // get prefix from feature flag
@@ -92,8 +94,6 @@ fn main() {
         .collect::<Vec<(String, char, String)>>();
 
     let mut file = File::create("./src/lib.rs").unwrap();
-
-    file.write(RUST_CODE_PREAMBLE.as_bytes()).unwrap();
 
     // -- part 1: create the enum
     file.write(RUST_CODE_START_1.as_bytes()).unwrap();

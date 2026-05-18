@@ -1,10 +1,13 @@
 [package]
-name = "material-icons"
+name = "material-symbols"
 version = "0.3.0"
 edition = "2021"
-authors = ["Felix Schütt <felix.schuett@maps4print.com>"]
-description = "Strongly-typed codepoint mappings for the Google Material Icons font"
-keywords = ["gui", "material", "material-icons", "icon", "icons" ]
+authors = [
+"Felix Schütt <felix.schuett@maps4print.com>",
+"insideoutlizard <insideoutlizard@gmail.com>"
+]
+description = "Strongly-typed codepoint mappings for the Google Material Symbols"
+keywords = ["gui", "material", "material-3", "material-symbols", "icon", "icons", "m3", "m3e" ]
 categories = ["gui"]
 license = "Apache-2.0"
 repository = "https://github.com/fschutt/material-icons"
@@ -15,3 +18,9 @@ readme = "README.md"
 [dependencies]
 # No dependencies - iteration available via ALL_ICONS array
 
+[features]
+default = ["sharp"]
+
+outlined = []
+rounded = []
+sharp = []

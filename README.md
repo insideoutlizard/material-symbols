@@ -3,6 +3,11 @@
 ## Info
 This fork updates the original with the newer Material Symbols icon set from 2022. It also replaces .ttf files with .woff2 for smaller files sizes.
 
+## Feature flags
+- `["sharp"]` *(Default)*
+- `["outlined"]` 
+- `["rounded"]`
+
 ---
 
 This repo contains the auto-generated mapping from an icon name
@@ -19,11 +24,6 @@ assert_eq!('\u{e84d}', icon_char);
 
 When the resulting character is displayed using any font renderer,
 the character will result in the "3d_rotation" glyph.
-
-## Feature flags
-- `["sharp"]` *(Default)*
-- `["outlined"]` 
-- `["rounded"]`
 
 ## License
 

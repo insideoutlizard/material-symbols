@@ -3,8 +3,8 @@ use std::char::from_u32;
 use std::fs::File;
 use std::io::Write;
 
-const RUST_CODE_START_1: &str = "
-/// Icon containing all possible icon names as enum discriminants
+const RUST_CODE_START_1: &str =
+    "/// Icon - font variation as prefix. containing all possible icon names as enum discriminants
 #[repr(C)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum Icon {\n";

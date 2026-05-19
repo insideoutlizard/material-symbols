@@ -1,5 +1,4 @@
-
-/// Icon containing all possible icon names as enum discriminants
+/// Icon - font variation as prefix. containing all possible icon names as enum discriminants
 #[repr(C)]
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub enum Icon {

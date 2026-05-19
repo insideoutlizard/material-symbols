@@ -10,17 +10,21 @@ This fork updates the original with the newer Material Symbols icon set from 202
 * `["outlined"]` 
 * `["rounded"]`
 
+
+## Things I'll probably add
+- Pictogrammers MDI icons
+
 ---
 
 This repo contains the auto-generated mapping from an icon name
-(such as `Icon::SharpNetworkWifi`) to the character codepoint `\u{e1ba}`)
+(such as `Icon::NetworkWifi`) to the character codepoint `\u{e1ba}`)
 in Google's Material Symbols variable font ([https://material.io/tools/icons/](https://material.io/tools/icons/))
 
 ## Example
 
 ```rust
-use material_symbols::{Icon, icon_to_char};
-let icon_char = icon_to_char(Icon::SharpOralDisease);
+use material_symbols::{Icon, char_from_icon};
+let icon_char = char_from_icon(Icon::SharpOralDisease);
 assert_eq!('\u{e116}', icon_char);
 ```
 

@@ -1,4 +1,6 @@
 # Material Symbols for Rust
+This branch has no external dependencies for those that might want that sort of thing.
+
 
 ## Info
 This fork updates the original with the newer Material Symbols icon set from 2022. It also replaces .ttf files with .woff2 for smaller files sizes.
@@ -38,4 +40,3 @@ You do not need to attribute Google (although they appreciate it):
 > icons and documentation in your products. We'd love attribution in your app's
 > about screen, but it's not required. The only thing we ask is that you not
 > re-sell these icons."
-

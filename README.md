@@ -1,12 +1,14 @@
 # Material Symbols for Rust
 
 ## Info
-This fork updates the original with the newer Material Symbols icon set from 2022. It also replaces .ttf files with .woff2 for smaller files sizes.
+This fork updates the original with the newer Material Symbols icon set from 2022. It also:
+- Replaces .ttf files with .woff2
+- Adds a few dependencies that make life easier. There's a `no-deps` branch that has no external dependencies but I'm not going to maintain it. 
 
 ## Feature flags
-- `["sharp"]` *(Default)*
-- `["outlined"]` 
-- `["rounded"]`
+* `["sharp"]` *(Default)*
+* `["outlined"]` 
+* `["rounded"]`
 
 ---
 
@@ -18,12 +20,12 @@ in Google's Material Symbols variable font ([https://material.io/tools/icons/](h
 
 ```rust
 use material_symbols::{Icon, icon_to_char};
-let icon_char = icon_to_char(Icon::Rotation3d);
-assert_eq!('\u{e84d}', icon_char);
+let icon_char = icon_to_char(Icon::SharpOralDisease);
+assert_eq!('\u{e116}', icon_char);
 ```
 
 When the resulting character is displayed using any font renderer,
-the character will result in the "3d_rotation" glyph.
+the character will result in the "oral_disease" glyph.
 
 ## License
 
@@ -38,4 +40,3 @@ You do not need to attribute Google (although they appreciate it):
 > icons and documentation in your products. We'd love attribution in your app's
 > about screen, but it's not required. The only thing we ask is that you not
 > re-sell these icons."
-

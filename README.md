@@ -13,7 +13,7 @@ This fork updates the original with the newer Material Symbols icon set from 202
 ---
 
 This repo contains the auto-generated mapping from an icon name
-(such as `Icon::NetworkWifi`) to the character codepoint `\u{e1ba}`)
+(such as `Icon::SharpNetworkWifi`) to the character codepoint `\u{e1ba}`)
 in Google's Material Symbols variable font ([https://material.io/tools/icons/](https://material.io/tools/icons/))
 
 ## Example

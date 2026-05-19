@@ -15,6 +15,10 @@ build = "./build.rs"
 license = "Apache-2.0"
 repository = "https://github.com/fschutt/material-icons"
 
+[dependencies]
+strum = "0.28.0"
+strum_macros = "0.28.0"
+
 [features]
 default = ["sharp"]
 

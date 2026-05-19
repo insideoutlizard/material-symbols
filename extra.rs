@@ -1,6 +1,6 @@
 impl From<Icon> for char {
     fn from(icon: Icon) -> char {
-        icon_to_char(icon)
+        char_from_icon(icon)
     }
 }
 
@@ -16,17 +16,21 @@ pub const FONT: &[u8] = include_bytes!("../assets/MaterialSymbolsRounded.woff2")
 
 // Default
 #[cfg(any(
-feature = "sharp",
-all(not(feature = "outlined"), not(feature = "rounded"), not(feature = "sharp")),
-          all(feature = "outlined", feature = "rounded"),
-          all(feature = "outlined", feature = "sharp"),
-          all(feature = "rounded", feature = "sharp"),
+    feature = "sharp",
+    all(
+        not(feature = "outlined"),
+        not(feature = "rounded"),
+        not(feature = "sharp")
+    ),
+    all(feature = "outlined", feature = "rounded"),
+    all(feature = "outlined", feature = "sharp"),
+    all(feature = "rounded", feature = "sharp"),
 ))]
 pub const FONT: &[u8] = include_bytes!("../assets/MaterialSymbolsSharp.woff2");
 
 use std::fmt;
 impl fmt::Display for Icon {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}", icon_to_char(*self))
+        write!(f, "{}", char_from_icon(*self))
     }
 }

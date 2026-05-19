@@ -1,6 +1,7 @@
-/// Icon - font variation as prefix. containing all possible icon names as enum discriminants
+use strum_macros::EnumString;
 #[repr(C)]
-#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash, PartialOrd, Ord, EnumString)]
+#[strum(serialize_all = "PascalCase")]
 pub enum Icon {
     Sharp10k,
     Sharp10mp,
@@ -4254,10 +4255,8 @@ pub enum Icon {
     SharpZoomOutMap,
 }
 
-
-/// Converts an `Icon` to a `char`. Same as `format!("{}", icon)` or `icon.to_char()`.
 #[unsafe(no_mangle)]
-pub fn icon_to_char(icon: Icon) -> char {
+pub fn char_from_icon(icon: Icon) -> char {
     use self::Icon::*;
     match icon {
         Sharp10k => '\u{e951}',
@@ -8514,7 +8513,7 @@ pub fn icon_to_char(icon: Icon) -> char {
 }
 impl From<Icon> for char {
     fn from(icon: Icon) -> char {
-        icon_to_char(icon)
+        char_from_icon(icon)
     }
 }
 
@@ -8530,23 +8529,26 @@ pub const FONT: &[u8] = include_bytes!("../assets/MaterialSymbolsRounded.woff2")
 
 // Default
 #[cfg(any(
-feature = "sharp",
-all(not(feature = "outlined"), not(feature = "rounded"), not(feature = "sharp")),
-          all(feature = "outlined", feature = "rounded"),
-          all(feature = "outlined", feature = "sharp"),
-          all(feature = "rounded", feature = "sharp"),
+    feature = "sharp",
+    all(
+        not(feature = "outlined"),
+        not(feature = "rounded"),
+        not(feature = "sharp")
+    ),
+    all(feature = "outlined", feature = "rounded"),
+    all(feature = "outlined", feature = "sharp"),
+    all(feature = "rounded", feature = "sharp"),
 ))]
 pub const FONT: &[u8] = include_bytes!("../assets/MaterialSymbolsSharp.woff2");
 
 use std::fmt;
 impl fmt::Display for Icon {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}", icon_to_char(*self))
+        write!(f, "{}", char_from_icon(*self))
     }
 }
 
-/// Get icon HTML name
-pub fn icon_to_html_name(icon: &Icon) -> &'static str {
+pub fn icon_to_str(icon: &Icon) -> &'static str {
     use self::Icon::*;
     match *icon {
         Sharp10k => "10k",
@@ -12802,20 +12804,8 @@ pub fn icon_to_html_name(icon: &Icon) -> &'static str {
     }
 }
 
-/// Total number of Material Icons
 pub const ICON_COUNT: usize = 4250;
 
-/// Array of all Material Icons for iteration
-///
-/// Use this to register all icons at startup:
-/// ```rust
-/// use material_icons::{ALL_ICONS, icon_to_char, icon_to_html_name};
-/// for icon in ALL_ICONS.iter() {
-///     let char_code = icon_to_char(*icon);
-///     let name = icon_to_html_name(icon);
-///     // ... register icon
-/// }
-/// ```
 pub const ALL_ICONS: [Icon; ICON_COUNT] = [
     Icon::Sharp10k,
     Icon::Sharp10mp,
@@ -17066,5 +17056,5 @@ pub const ALL_ICONS: [Icon; ICON_COUNT] = [
     Icon::SharpZoomIn,
     Icon::SharpZoomInMap,
     Icon::SharpZoomOut,
-    Icon::SharpZoomOutMap
+    Icon::SharpZoomOutMap,
 ];

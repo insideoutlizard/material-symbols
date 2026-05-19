@@ -56,9 +56,9 @@ fn main() {
     const CODEPOINTS: &str = include_str!("./assets/codepoints.txt");
 
     // get prefix from feature flag
-    let prefix = if std::env::var("CARGO_FEATURED_ROUNDED").is_ok() {
+    let prefix = if std::env::var("CARGO_FEATURE_ROUNDED").is_ok() {
         "Rounded"
-    } else if std::env::var("CARGO_FEATURED_OUTLINED").is_ok() {
+    } else if std::env::var("CARGO_FEATURE_OUTLINED").is_ok() {
         "Outlined"
     } else {
         "Sharp"
